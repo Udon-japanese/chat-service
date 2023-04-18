@@ -1,18 +1,14 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html lang="ja">
-      <Head>
-        <link
-          href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
-          rel="stylesheet"
-        />
-      </Head>
+      <Head />
       <body className="dark:bg-gray-900">
         <Main />
         <NextScript />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
+        <Script src="../node_modules/flowbite/dist/flowbite.min.js" />
       </body>
     </Html>
   );
