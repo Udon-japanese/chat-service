@@ -75,20 +75,7 @@ export default function Home() {
               <span className="text-white">Steve Schoger</span>
             </div>
           </div>
-          <div>
-            <div className="mb-2 flex items-center justify-between px-4 text-white">
-              <div className="opacity-75">Apps</div>
-              <div>
-                <svg
-                  className="h-4 w-4 fill-current opacity-50"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M11 9h4v2h-4v4H9v-4H5V9h4V5h2v4zm-1 11a10 10 0 1 1 0-20 10 10 0 0 1 0 20zm0-2a8 8 0 1 0 0-16 8 8 0 0 0 0 16z" />
-                </svg>
-              </div>
-            </div>
-          </div>
+          <div></div>
         </div>
         {/* Chat content */}
         <div className="flex flex-1 flex-col overflow-hidden bg-white">
@@ -102,65 +89,12 @@ export default function Home() {
                 <h3 className="mb-1 font-extrabold text-white">#general</h3>
               </div>
               <div className="truncate text-sm text-white">
-                Chit-chattin' about ugly HTML and mixing of concerns.
+                Let's start Slack!
               </div>
             </div>
           </div>
-          {/* Chat messages */}
-          <div className="hidden-scrollbar flex-1 overflow-y-scroll bg-gray-800 px-6 py-4">
-            {/* A message */}
-            <div className="mb-4 flex items-start text-sm">
-              <img src="/2.png" className="mr-3 h-10 w-10 rounded" />
-              <div className="flex-1 overflow-hidden">
-                <div>
-                  <span className="font-bold text-white">Steve Schoger</span>
-                  <span className="text-xs text-white"> 11:46</span>
-                </div>
-                <p className="leading-normal text-white">
-                  The slack from the other side.
-                </p>
-              </div>
-            </div>
-            {/* A message */}
-            <div className="mb-4 flex items-start text-sm">
-              <img src="/1.png" className="mr-3 h-10 w-10 rounded" />
-              <div className="flex-1 overflow-hidden">
-                <div>
-                  <span className="font-bold text-white">Adam Wathan</span>
-                  <span className="text-xs text-white"> 12:45</span>
-                </div>
-                <p className="leading-normal text-white">
-                  How are we supposed to control the marquee space without an
-                  utility for it? I propose this:
-                </p>
-                <div className="mt-2 overflow-scroll whitespace-pre p-3 font-mono text-sm text-orange-400">
-                  .marquee-lightspeed {"{"} -webkit-marquee-speed: fast; {"}"}
-                  .marquee-lightspeeder {"{"} -webkit-marquee-speed: faster;{" "}
-                  {"}"}
-                </div>
-              </div>
-            </div>
-            {/* A message */}
-            <div className="mb-4 flex items-start text-sm">
-              <img src="/3.png" className="mr-3 h-10 w-10 rounded" />
-              <div className="flex-1 overflow-hidden">
-                <div>
-                  <span className="font-bold text-white">David Hemphill</span>
-                  <span className="text-xs text-white"> 12:46</span>
-                </div>
-                <p className="leading-normal text-white">
-                  <a
-                    href="#"
-                    className="inline-block bg-blue-400 text-blue-900 hover:underline"
-                  >
-                    @Adam Wathan
-                  </a>{" "}
-                  the size of the generated CSS is creating a singularity in
-                  space/time, we must stop adding more utilities before it's too
-                  late!
-                </p>
-              </div>
-            </div>
+          <div className="flex-1 overflow-y-scroll bg-gray-800 px-6 py-4">
+            {drawChatList(3)}
           </div>
           <div className="flex-none bg-gray-800 px-4 pb-6">
             <Form />
@@ -169,4 +103,69 @@ export default function Home() {
       </div>
     </>
   );
+}
+
+function drawChatList(n: number): JSX.Element[] {
+  const listArray: JSX.Element[] = [];
+  for (let i = 0; i < n; i++) {
+    listArray.push(
+      <div key={i}>
+        {/* Chat messages */}
+        {/* A message */}
+        <div className="mb-4 flex items-start text-sm">
+          <img src="/2.png" className="mr-3 h-10 w-10 rounded" />
+          <div className="flex-1 overflow-hidden">
+            <div>
+              <span className="font-bold text-white">Steve Schoger</span>
+              <span className="text-xs text-white"> 11:46</span>
+            </div>
+            <p className="leading-normal text-white">
+              The slack from the other side.
+            </p>
+          </div>
+        </div>
+        {/* A message */}
+        <div className="mb-4 flex items-start text-sm">
+          <img src="/1.png" className="mr-3 h-10 w-10 rounded" />
+          <div className="flex-1 overflow-hidden">
+            <div>
+              <span className="font-bold text-white">Adam Wathan</span>
+              <span className="text-xs text-white"> 12:45</span>
+            </div>
+            <p className="leading-normal text-white">
+              How are we supposed to control the marquee space without an
+              utility for it? I propose this:
+            </p>
+            <div className="mt-2 overflow-scroll whitespace-pre p-3 font-mono text-sm text-orange-400">
+              .marquee-lightspeed {"{"} -webkit-marquee-speed: fast; {"}"}
+              .marquee-lightspeeder {"{"} -webkit-marquee-speed: faster; {"}"}
+            </div>
+          </div>
+        </div>
+        {/* A message */}
+        <div className="mb-4 flex items-start text-sm">
+          <img src="/3.png" className="mr-3 h-10 w-10 rounded" />
+          <div className="flex-1 overflow-hidden">
+            <div>
+              <span className="font-bold text-white">David Hemphill</span>
+              <span className="text-xs text-white"> 12:46</span>
+            </div>
+            <p className="leading-normal text-white">
+              <a
+                href="#"
+                className="inline-block bg-blue-400 text-blue-900 hover:underline"
+              >
+                @Adam Wathan
+              </a>{" "}
+              the size of the generated CSS is creating a singularity in
+              space/time, we must stop adding more utilities before it's too
+              late!
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return listArray;
 }
