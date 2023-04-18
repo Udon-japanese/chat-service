@@ -1,8 +1,8 @@
-import { Buttons } from "@/types/Buttons";
+import { UtilButton } from "@/types/UtilButton";
 import { Icon } from "@iconify/react";
 
 export default function Form() {
-  const formattingButtons: Buttons[] = [
+  const formattingButtons: UtilButton[] = [
     {
       desc: "太文字",
       target: "Bold text",
@@ -20,7 +20,7 @@ export default function Form() {
     },
   ];
 
-  const contentEditingButtons: Buttons[] = [
+  const contentEditingButtons: UtilButton[] = [
     {
       desc: "リンクを追加",
       target: "Add link",
@@ -44,10 +44,10 @@ export default function Form() {
           <div className="flex items-center justify-between border-b px-2 py-1 dark:border-gray-600">
             <div className="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x">
               <div className="flex items-center space-x-1 sm:pr-4">
-                {drawButtons(formattingButtons)}
+                {renderButtons(formattingButtons)}
               </div>
               <div className="flex items-center space-x-1 sm:pl-4">
-                {drawButtons(contentEditingButtons)}
+                {renderButtons(contentEditingButtons)}
               </div>
             </div>
           </div>
@@ -83,9 +83,9 @@ export default function Form() {
   );
 }
 
-function drawButtons(buttons: Buttons[]): JSX.Element[] {
+function renderButtons(buttons: UtilButton[]): JSX.Element[] {
   return buttons.map(
-    (button: Buttons, i: number): JSX.Element => (
+    (button: UtilButton, i: number): JSX.Element => (
       <span
         key={i}
         className="relative group"

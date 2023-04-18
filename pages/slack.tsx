@@ -1,5 +1,6 @@
 import Form from "@/components/Form";
 import { Icon } from "@iconify/react";
+import { Message } from "@/types/Message";
 
 export default function Home() {
   return (
@@ -94,7 +95,7 @@ export default function Home() {
             </div>
           </div>
           <div className="flex-1 overflow-y-scroll bg-gray-800 px-6 py-4">
-            {drawChatList(3)}
+            {repeatMessage(3)}
           </div>
           <div className="flex-none bg-gray-800 px-4 pb-6">
             <Form />
@@ -105,66 +106,48 @@ export default function Home() {
   );
 }
 
-function drawChatList(n: number): JSX.Element[] {
+function renderMessage(message: Message, i: number) {
+  return (
+        <div key={i}>
+          <div className="mb-4 flex items-start text-sm">
+            <img src={message.userIcon} className="mr-3 h-10 w-10 rounded" />
+            <div className="flex-1 overflow-hidden">
+              <div>
+                <span className="font-bold text-white">{message.user}</span>
+                <span className="text-xs text-white"> {message.postedAt}</span>
+              </div>
+              <p className="leading-normal text-white">{message.messageBody}</p>
+            </div>
+          </div>
+        </div>
+  );
+}
+
+function repeatMessage(n: number): JSX.Element[] {
+  const messages: Message[] = [
+    {
+      user: "マンモス",
+      userIcon: "/1.png",
+      postedAt: "11:46",
+      messageBody: "明日はどこへ行きましょうか？",
+    },
+    {
+      user: "やとー",
+      userIcon: "/2.png",
+      postedAt: "11:46",
+      messageBody: "水族館はどうですか？",
+    },
+    {
+      user: "りんご",
+      userIcon: "/3.png",
+      postedAt: "11:46",
+      messageBody: "いいですね！",
+    },
+  ];
   const listArray: JSX.Element[] = [];
   for (let i = 0; i < n; i++) {
-    listArray.push(
-      <div key={i}>
-        {/* Chat messages */}
-        {/* A message */}
-        <div className="mb-4 flex items-start text-sm">
-          <img src="/2.png" className="mr-3 h-10 w-10 rounded" />
-          <div className="flex-1 overflow-hidden">
-            <div>
-              <span className="font-bold text-white">Steve Schoger</span>
-              <span className="text-xs text-white"> 11:46</span>
-            </div>
-            <p className="leading-normal text-white">
-              The slack from the other side.
-            </p>
-          </div>
-        </div>
-        {/* A message */}
-        <div className="mb-4 flex items-start text-sm">
-          <img src="/1.png" className="mr-3 h-10 w-10 rounded" />
-          <div className="flex-1 overflow-hidden">
-            <div>
-              <span className="font-bold text-white">Adam Wathan</span>
-              <span className="text-xs text-white"> 12:45</span>
-            </div>
-            <p className="leading-normal text-white">
-              How are we supposed to control the marquee space without an
-              utility for it? I propose this:
-            </p>
-            <div className="mt-2 overflow-scroll whitespace-pre p-3 font-mono text-sm text-orange-400">
-              .marquee-lightspeed {"{"} -webkit-marquee-speed: fast; {"}"}
-              .marquee-lightspeeder {"{"} -webkit-marquee-speed: faster; {"}"}
-            </div>
-          </div>
-        </div>
-        {/* A message */}
-        <div className="mb-4 flex items-start text-sm">
-          <img src="/3.png" className="mr-3 h-10 w-10 rounded" />
-          <div className="flex-1 overflow-hidden">
-            <div>
-              <span className="font-bold text-white">David Hemphill</span>
-              <span className="text-xs text-white"> 12:46</span>
-            </div>
-            <p className="leading-normal text-white">
-              <a
-                href="#"
-                className="inline-block bg-blue-400 text-blue-900 hover:underline"
-              >
-                @Adam Wathan
-              </a>{" "}
-              the size of the generated CSS is creating a singularity in
-              space/time, we must stop adding more utilities before it's too
-              late!
-            </p>
-          </div>
-        </div>
-      </div>
-    );
+    const fixedI = (i - 1) % 3 + 1;
+    listArray.push(renderMessage(messages[fixedI], fixedI));
   }
 
   return listArray;
