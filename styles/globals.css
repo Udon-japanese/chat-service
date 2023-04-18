@@ -1,3 +1,43 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .tooltip {
+    @apply whitespace-nowrap rounded bg-black px-2 py-1 text-white absolute -top-12 left-1/2 -translate-x-1/2 before:content-[''] before:absolute before:-translate-x-1/2 before:left-1/2 before:top-full before:border-4 before:border-transparent before:border-t-black opacity-0 group-hover:opacity-100 transition pointer-events-none dark:bg-gray-700 dark:before:border-t-gray-700;
+  }
+}
+
+/* 縦方向のスクロールバー */
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+/* スクロールバーの棒 */
+::-webkit-scrollbar-thumb {
+  background-color: #C0C0C0;
+  border-radius: 5px;
+}
+
+/* マウスオーバーしたときのスクロールバーの棒 */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #A9A9A9;
+}
+
+/* 横方向のスクロールバー */
+::-webkit-scrollbar-horizontal {
+  height: 10px;
+  background-color: transparent;
+}
+
+/* スクロールバーの棒 */
+::-webkit-scrollbar-thumb:horizontal {
+  background-color: #C0C0C0;
+  border-radius: 5px;
+}
+
+/* マウスオーバーしたときの横方向のスクロールバーの棒 */
+::-webkit-scrollbar-thumb:hover:horizontal {
+  background-color: #A9A9A9;
+}

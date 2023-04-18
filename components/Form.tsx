@@ -1,6 +1,5 @@
 import { Buttons } from "@/types/Buttons";
 import { Icon } from "@iconify/react";
-import { Tooltip } from "flowbite-react";
 
 export default function Form() {
   const formattingButtons: Buttons[] = [
@@ -40,8 +39,8 @@ export default function Form() {
   ];
   return (
     <>
-      <form action="/api/posts" method="post" className="mx-16">
-        <div className="mb-4 w-full rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700">
+      <form action="/api/posts" method="post">
+        <div className="w-full rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700">
           <div className="flex items-center justify-between border-b px-2 py-1 dark:border-gray-600">
             <div className="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x">
               <div className="flex items-center space-x-1 sm:pr-4">
@@ -54,30 +53,28 @@ export default function Form() {
           </div>
           <div className="bg-white px-4 py-2 dark:bg-gray-800">
             <textarea
-              id="editor"
+              id="message"
               name="message"
               rows={5}
               className="block w-full resize-none border-0 bg-white px-0 text-sm text-gray-800 focus:ring-0 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
-              placeholder="全体 へのメッセージ"
+              placeholder="#general へのメッセージ"
               required
             ></textarea>
           </div>
           <div className="flex items-center justify-between border-t px-2 py-1 dark:border-gray-600">
             <div className="ml-auto">
-              <Tooltip
-                animation="duration-500"
-                content="送信"
-                className="bg-gray-900 text-white dark:bg-gray-700"
-              >
+              <span className="relative group">
+                <span className="tooltip">
+                  送信
+                </span>
                 <button
                   type="submit"
-                  data-tooltip-target="Send-message"
                   className="cursor-pointer p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
                 >
                   <Icon icon="material-symbols:send" width={20} />
                   <span className="sr-only">Send message</span>
                 </button>
-              </Tooltip>
+              </span>
             </div>
           </div>
         </div>
@@ -89,21 +86,21 @@ export default function Form() {
 function drawButtons(buttons: Buttons[]): JSX.Element[] {
   return buttons.map(
     (button: Buttons, i: number): JSX.Element => (
-      <Tooltip
+      <span
         key={i}
-        animation="duration-500"
-        content={button.desc}
-        className="bg-gray-900 text-white dark:bg-gray-700"
+        className="relative group"
       >
+        <span className="tooltip">
+          {button.desc}
+        </span>
         <button
-          data-tooltip-target={button.target}
           type="button"
           className="cursor-pointer rounded p-2 text-gray-500 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white"
         >
           <Icon icon={button.iconName} width={20} />
           <span className="sr-only">{button.target}</span>
         </button>
-      </Tooltip>
+      </span>
     )
   );
 }
