@@ -1,6 +1,6 @@
-import Form from "@/components/Form";
+import MessageForm from "@/components/Form/MessageForm";
 import { Icon } from "@iconify/react";
-import { Message } from "@/types/Message";
+import { Message } from "@/types/Text/Message/Message";
 
 export default function Home() {
   return (
@@ -98,7 +98,7 @@ export default function Home() {
             {repeatMessage(3)}
           </div>
           <div className="flex-none bg-gray-800 px-4 pb-6">
-            <Form />
+            <MessageForm />
           </div>
         </div>
       </div>

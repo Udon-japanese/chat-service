@@ -1,4 +1,4 @@
-import { UtilButton } from "@/types/UtilButton";
+import { UtilButton } from "@/types/Button/UtilButton";
 import { Icon } from "@iconify/react";
 
 export default function Form() {
@@ -56,7 +56,7 @@ export default function Form() {
               id="message"
               name="message"
               rows={5}
-              className="block w-full resize-none border-0 bg-white px-0 text-sm text-gray-800 focus:ring-0 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400"
+              className="block w-full resize-none border-0 bg-white px-0 text-sm text-gray-800 focus:ring-0 dark:bg-gray-800 dark:text-white dark:placeholder-gray-400 outline-none"
               placeholder="#general へのメッセージ"
               required
             ></textarea>
