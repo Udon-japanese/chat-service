@@ -1,10 +1,13 @@
 import type { AuthText } from "@/types/Text/Auth/AuthText";
 import Authenticate from "@/components/Form/Authenticate";
 const text: AuthText = {
-  head: "アカウントでログイン",
+  head: "ログイン",
   subhead: {
     p: "アカウントがありませんか？",
-    link: "こちらでサインアップ",
+    link:{
+      text: "こちらでサインアップ",
+      href: "/signup"
+    },
   },
   googleText: "ログイン",
   authBtnText: "ログイン"

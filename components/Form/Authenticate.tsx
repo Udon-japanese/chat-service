@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 import { useState } from "react";
 import type { AuthText } from "@/types/Text/Auth/AuthText";
 
-export default function Authenticate(text: AuthText) {
+export default function Authenticate(texts: AuthText) {
   const [showPassword, setShowPassword] = useState(false);
 
   const toggleShowPassword = () => {
@@ -15,18 +15,18 @@ export default function Authenticate(text: AuthText) {
         <div className="mt-16 w-full rounded bg-white p-10 shadow dark:bg-gray-700 md:w-1/2 lg:w-1/3">
           <p
             role="heading"
-            className="text-2xl font-extrabold leading-6 text-gray-800 dark:text-gray-300"
+            className="text-2xl text-center font-extrabold leading-6 text-gray-800 dark:text-gray-300"
           >
-            {text.head}
+            {texts.head}
           </p>
-          <p className="mt-4 text-sm font-medium leading-none text-gray-500 dark:text-gray-300">
-            {text.subhead.p}&nbsp;
+          <p className="mt-5 text-sm text-center font-medium leading-none text-gray-500 dark:text-gray-300">
+            {texts.subhead.p}&nbsp;
             <Link
               tabIndex={0}
-              href="/signup"
-              className="cursor-pointer text-sm font-medium leading-none text-gray-800 hover:underline dark:text-white"
+              href={texts.subhead.link.href}
+              className="cursor-pointer text-sm font-medium leading-none text-gray-800 hover:underline dark:text-white hover:text-blue-600 dark:hover:text-blue-500"
             >
-              {text.subhead.link}
+              {texts.subhead.link.text}
             </Link>
           </p>
           <button
@@ -36,7 +36,7 @@ export default function Authenticate(text: AuthText) {
           >
             <Icon icon="flat-color-icons:google" width={21}></Icon>
             <p className="ml-4 text-base font-medium text-gray-700 dark:text-gray-300">
-              Google で{text.googleText}
+              Google で{texts.googleText}
             </p>
           </button>
           <div className="flex w-full items-center justify-between py-5">
@@ -57,7 +57,7 @@ export default function Authenticate(text: AuthText) {
             />
             <label
               htmlFor="email"
-              className="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform select-none text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+              className="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform select-none text-sm text-gray-500 duration-200 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
             >
               メールアドレス
             </label>
@@ -74,7 +74,7 @@ export default function Authenticate(text: AuthText) {
               />
               <label
                 htmlFor="password"
-                className="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform select-none text-sm text-gray-500 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
+                className="absolute left-2.5 top-4 z-10 origin-[0] -translate-y-4 scale-75 transform select-none text-sm text-gray-500 duration-200 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75 peer-focus:text-blue-600 dark:text-gray-400 peer-focus:dark:text-blue-500"
               >
                 パスワード
               </label>
@@ -96,9 +96,9 @@ export default function Authenticate(text: AuthText) {
             <button
               role="button"
               aria-label="create my account"
-              className="w-full rounded border bg-blue-700 py-4 text-sm font-semibold leading-none text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-offset-2"
+              className="w-full rounded border bg-blue-700 py-4 text-sm font-semibold leading-none text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
             >
-              {text.authBtnText}
+              {texts.authBtnText}
             </button>
           </div>
         </div>
