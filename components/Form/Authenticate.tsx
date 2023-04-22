@@ -24,7 +24,7 @@ export default function Authenticate(texts: AuthText) {
             <Link
               tabIndex={0}
               href={texts.subhead.link.href}
-              className="cursor-pointer text-sm font-medium leading-none text-gray-800 hover:underline dark:text-white hover:text-blue-600 dark:hover:text-blue-500"
+              className="cursor-pointer px-1 py-1.5 text-sm font-medium leading-none hover:bg-blue-400 hover:bg-opacity-10 rounded no-underline text-blue-600 dark:text-blue-500"
             >
               {texts.subhead.link.text}
             </Link>
@@ -32,7 +32,7 @@ export default function Authenticate(texts: AuthText) {
           <button
             aria-label="Continue with google"
             role="button"
-            className="mb-4 mt-10 flex w-full items-center rounded-lg border border-gray-700 px-4 py-3.5 focus:outline-none focus:ring-2 focus:ring-gray-700 focus:ring-offset-1 dark:border-gray-300 dark:focus:ring-gray-300"
+            className="mb-4 mt-10 flex w-full items-center rounded-lg border border-gray-700 px-4 py-3.5 hover:bg-gray-300 focus:outline-none focus:ring-4 dark:hover:bg-gray-800 focus:ring-gray-700 dark:border-gray-500 dark:focus:ring-gray-800"
           >
             <Icon icon="flat-color-icons:google" width={21}></Icon>
             <p className="ml-4 text-base font-medium text-gray-700 dark:text-gray-300">
@@ -95,8 +95,7 @@ export default function Authenticate(texts: AuthText) {
           <div className="mt-8">
             <button
               role="button"
-              aria-label="create my account"
-              className="w-full rounded border bg-blue-700 py-4 text-sm font-semibold leading-none text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               {texts.authBtnText}
             </button>
