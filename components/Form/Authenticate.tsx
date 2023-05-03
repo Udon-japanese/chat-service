@@ -4,7 +4,7 @@ import { useState } from "react";
 import type { AuthText } from "@/types/Text/Auth/AuthText";
 
 export default function Authenticate(texts: AuthText) {
-  const [showPassword, setShowPassword] = useState(false);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const toggleShowPassword = () => {
     setShowPassword(!showPassword);
@@ -48,7 +48,7 @@ export default function Authenticate(texts: AuthText) {
           </div>
           <div className="relative">
             <input
-              type="text"
+              type="email"
               aria-label="enter email address"
               id="email"
               className="peer block w-full appearance-none rounded-t-lg border-0 border-b-2 border-gray-300 bg-transparent px-2.5 pb-2.5 pt-5 text-sm text-gray-900 focus:border-blue-600 focus:outline-none focus:ring-0 dark:border-gray-600 dark:bg-gray-700 dark:text-white dark:focus:border-blue-500"
@@ -82,7 +82,7 @@ export default function Authenticate(texts: AuthText) {
                 <button
                   type="button"
                   onClick={toggleShowPassword}
-                  className="dark:text-white"
+                  className="dark:text-gray-300 hover:text-white"
                 >
                   <Icon
                     icon={showPassword ? "bi:eye-slash-fill" : "bi:eye-fill"}
@@ -95,7 +95,7 @@ export default function Authenticate(texts: AuthText) {
           <div className="mt-8">
             <button
               role="button"
-              className="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+              className="w-full text-white bg-blue-700 hover:bg-blue-400 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               {texts.authBtnText}
             </button>

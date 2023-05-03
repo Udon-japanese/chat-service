@@ -1,6 +1,8 @@
-import MessageForm from "@/components/Form/MessageForm";
 import { Icon } from "@iconify/react";
 import { Message } from "@/types/Text/Message/Message";
+import dynamic from "next/dynamic";
+
+const MessageForm = dynamic(import("@/components/Form/MessageForm"), { ssr: false });
 
 export default function Home() {
   return (
@@ -94,7 +96,7 @@ export default function Home() {
               </div>
             </div>
           </div>
-          <div className="flex-1 overflow-y-scroll bg-gray-800 px-6 py-4">
+          <div className="flex-1 overflow-auto bg-gray-800 px-6 py-4">
             {repeatMessage(3)}
           </div>
           <div className="flex-none bg-gray-800 px-4 pb-6">

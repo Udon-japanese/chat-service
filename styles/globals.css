@@ -8,6 +8,12 @@
   }
 }
 
+@media (prefers-color-scheme: dark) {
+  .quill .ql-container .ql-editor.ql-blank::before {
+    color: rgb(170, 166, 166);
+  }
+}
+
 /* 縦方向のスクロールバー */
 ::-webkit-scrollbar {
   width: 10px;
@@ -40,4 +46,9 @@
 /* マウスオーバーしたときの横方向のスクロールバーの棒 */
 ::-webkit-scrollbar-thumb:hover:horizontal {
   background-color: #A9A9A9;
+}
+
+.quill .ql-container .ql-editor p em {
+  transform: skewX(-15deg);
+  display: inline-block;
 }
