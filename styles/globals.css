@@ -6,6 +6,9 @@
   .tooltip {
     @apply whitespace-nowrap rounded bg-black px-2 py-1 text-white absolute -top-12 left-1/2 -translate-x-1/2 before:content-[''] before:absolute before:-translate-x-1/2 before:left-1/2 before:top-full before:border-4 before:border-transparent before:border-t-black opacity-0 group-hover:opacity-100 transition pointer-events-none dark:bg-gray-700 dark:before:border-t-gray-700;
   }
+  .ja {
+    @apply flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x
+  }
 }
 
 @media (prefers-color-scheme: dark) {
@@ -48,7 +51,19 @@
   background-color: #A9A9A9;
 }
 
-.quill .ql-container .ql-editor p em {
+.ql-editor p em {
   transform: skewX(-15deg);
   display: inline-block;
+}
+
+.ql-editor {
+  border: none;
+}
+
+a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+a:hover {
+  color: #3b82f6;
 }

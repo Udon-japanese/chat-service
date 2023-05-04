@@ -1,5 +1,6 @@
 import { UtilButton } from "@/types/Button/UtilButton";
 import { Icon } from "@iconify/react";
+import Editor from "../editor/Editor";
 
 const formattingButtons: UtilButton[] = [
   {
@@ -74,9 +75,9 @@ export default function Form() {
     <>
       <div className="w-full rounded-lg border border-gray-200 bg-gray-50 dark:border-gray-600 dark:bg-gray-700">
         <div className="flex items-center justify-between border-b px-2 py-0.5 dark:border-gray-600">
-          <div className="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x">
-            {renderButtons(buttonsArray)}
-          </div>
+          {/* <div className="flex flex-wrap items-center divide-gray-200 dark:divide-gray-600 sm:divide-x"> */}
+            {/* {renderButtons(buttonsArray)} */}
+          {/* </div> */}
         </div>
         <div className="relative max-h-[38rem] overflow-auto bg-white px-2 py-2 text-sm text-gray-800 dark:bg-gray-800 dark:text-white min-h-[12rem]">
           {/* <textarea
@@ -87,6 +88,7 @@ export default function Form() {
               placeholder="#general へのメッセージ"
               required
             ></textarea> */}
+            <Editor />
         </div>
         <div className="flex items-center justify-between border-t px-0.5 py-0.5 dark:border-gray-600">
           <div className="ml-auto">

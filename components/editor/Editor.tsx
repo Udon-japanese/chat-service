@@ -1,26 +1,32 @@
-import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "react-quill/dist/quill.snow.css";
-const ReactQuill = dynamic(import("react-quill"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex justify-center">
-      <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
-    </div>
-  ),
-});
+import QuillComponent, { ReactQuillProps } from "react-quill";
+const ReactQuill = (
+  typeof window === "object" ? require("react-quill") : () => false
+) as React.FC<ReactQuillProps & { ref: React.Ref<QuillComponent> }>;
+
 export default function Editor() {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState<string>("");
+  const quillRef = useRef<QuillComponent | null>(null);
+
+  useEffect(() => {
+    quillRef.current?.focus();
+  }, []);
 
   // useEffect(() => {
-  //   if (typeof window !== "undefined") {
-  //     const Quill = require("react-quill").Quill;
-  //     const italic = Quill.import("formats/italic");
-  //     italic.tagName = "em";
-  //     Quill.register(italic, true);
-  //   }
+  //     if (typeof window !== "undefined") {
+  //       const Quill = require("react-quill").Quill;
+  //       const italic = Quill.import("formats/italic");
+  //       italic.tagName = "em";
+  //       Quill.register(italic, true);
+  //     }
   // }, []);
 
+function Content() {
+  return (
+    React.createElement("div", {dangerouslySetInnerHTML: {__html: content}})
+  )
+}
   const modules = {
     toolbar: [
       ["bold", "italic", "strike"],
@@ -28,6 +34,7 @@ export default function Editor() {
       [{ list: "ordered" }, { list: "bullet" }],
       ["blockquote"],
       ["code-block"],
+      ["clean"],
     ],
     clipboard: {
       matchVisual: false,
@@ -37,7 +44,8 @@ export default function Editor() {
   return (
     <>
       <ReactQuill
-        placeholder="メッセージを入力..."
+        ref={quillRef}
+        placeholder="#general へのメッセージ"
         modules={modules}
         className="dark:text-white"
         value={content}
@@ -46,6 +54,7 @@ export default function Editor() {
         }}
         theme="snow"
       />
+      <Content />
     </>
   );
 }
