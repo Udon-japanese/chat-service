@@ -15,6 +15,72 @@
   .quill .ql-container .ql-editor.ql-blank::before {
     color: rgb(170, 166, 166);
   }
+
+  .ql-formats .ql-stroke {
+    fill: none !important;
+    stroke: rgb(156 163 175) !important;
+  }
+
+  .ql-formats .ql-fill {
+    fill: rgb(156 163 175) !important;
+    stroke: none !important;
+  }
+
+  .ql-formats button:hover .ql-stroke {
+    fill: none !important;
+    stroke: #ffffff !important;
+  }
+
+  .ql-formats button:hover .ql-fill {
+    fill: #ffffff !important;
+    stroke: none !important;
+  }
+
+  .ql-formats .ql-active .ql-stroke {
+    fill: none !important;
+    stroke: #ffffff !important;
+  }
+
+  .ql-formats .ql-active .ql-fill {
+    fill: #ffffff !important;
+    stroke: none !important;
+  }
+
+  .ql-tooltip {
+    background-color: rgb(55 65 81) !important;
+    border-color: rgb(75 85 99) !important;
+  }
+
+  .ql-tooltip[data-mode=link]::before {
+    color: white !important;
+  }
+
+  .ql-tooltip input {
+    background-color: rgb(31 41 55) !important;
+    color: white !important;
+    border-color: rgb(75 85 99) !important;
+  }
+
+  .ql-tooltip.ql-editing a.ql-action::after {
+    color: rgb(4, 155, 255);
+  }
+
+  .ql-tooltip a.ql-action::after {
+    color: rgb(4, 155, 255);
+  }
+
+  .ql-tooltip::before {
+    color: white;
+  }
+
+  a {
+    color: rgb(4, 155, 255) !important;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: #5bb5ff !important;
+  }
 }
 
 /* 縦方向のスクロールバー */
@@ -56,14 +122,57 @@
   display: inline-block;
 }
 
-.ql-editor {
-  border: none;
-}
-
 a {
   color: #2563eb;
   text-decoration: underline;
 }
+
 a:hover {
   color: #3b82f6;
+}
+
+.ql-snow.ql-toolbar {
+  border: none !important;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+}
+
+.ql-tooltip {
+  top: -8px !important;
+  left: 10px !important;
+}
+
+.ql-tooltip.ql-editing a.ql-action::after {
+  content: '保存する' !important;
+}
+
+.ql-tooltip a.ql-action::after {
+  content: '編集' !important;
+}
+
+.ql-tooltip a.ql-remove::before {
+  content: '削除する' !important;
+  color: red !important;
+}
+
+.ql-tooltip[data-mode=link]::before {
+  content: "リンクを追加：" !important;
+}
+
+.ql-tooltip::before {
+  content: "URLにアクセス：" !important;
+  line-height: 26px;
+  margin-right: 8px;
+}
+
+.ql-tooltip {
+  border-radius: 0.5rem;
+  box-shadow: none !important;
+}
+
+.ql-tooltip input {
+  outline: none;
+  border-radius: 0.5rem;
 }

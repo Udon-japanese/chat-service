@@ -1853,6 +1853,11 @@ has@^1.0.3:
   dependencies:
     function-bind "^1.1.1"
 
+highlight.js@^11.8.0:
+  version "11.8.0"
+  resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-11.8.0.tgz#966518ea83257bae2e7c9a48596231856555bb65"
+  integrity sha512-MedQhoqVdr0U6SSnWPzfiadUcDHfN/Wzq25AkXiQv9oiOO/sG0S7XkvpFIqWBl9Yq1UYyYOOVORs5UW2XlPyzg==
+
 http-parser-js@>=0.5.1:
   version "0.5.8"
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.5.8.tgz#af23090d9ac4e24573de6f6aecc9d84a48bf20e3"
@@ -2636,6 +2641,11 @@ quick-lru@^5.1.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/quick-lru/-/quick-lru-5.1.1.tgz#366493e6b3e42a3a6885e2e99d18f80fb7a8c932"
   integrity sha512-WuyALRjWPDGtt/wzJiadO5AXY+8hZ80hVpe6MyivgraREW751X3SbhRvG3eLKOYN+8VEvqLcf3wdnt44Z4S4SA==
+
+quill-auto-links@^0.1.3:
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/quill-auto-links/-/quill-auto-links-0.1.3.tgz#7da25a6da7140756b8d31cda3c4897ec6a0e76f9"
+  integrity sha512-BUXpvYfOE1qAxHWJnswUpVKMYzRQMc7GZ8zUIusMhswb0ZnAxSJWcFLeqJ/0MHUXfNwJS9nvBerOjdvb+vX6nA==
 
 quill-delta@^3.6.2:
   version "3.6.3"

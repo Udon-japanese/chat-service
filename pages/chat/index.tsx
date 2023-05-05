@@ -2,7 +2,17 @@ import { Icon } from "@iconify/react";
 import { Message } from "@/types/Text/Message/Message";
 import dynamic from "next/dynamic";
 
-const MessageForm = dynamic(import("@/components/Form/MessageForm"), { ssr: false });
+const Editor = dynamic(import("@/components/editor"), {
+  ssr: false,
+  loading: () => (
+    <>
+      <div className="flex justify-center mb-2">
+        <div className="h-10 w-10 animate-spin rounded-full border-4 border-blue-500 border-t-transparent"></div>
+      </div>
+      <p className="text-center dark:text-white text-xl">エディターを読み込み中...</p>
+    </>
+  ),
+});
 
 export default function Home() {
   return (
@@ -100,7 +110,7 @@ export default function Home() {
             {repeatMessage(3)}
           </div>
           <div className="flex-none bg-gray-800 px-4 pb-6">
-            <MessageForm />
+            <Editor />
           </div>
         </div>
       </div>
@@ -110,18 +120,18 @@ export default function Home() {
 
 function renderMessage(message: Message, i: number) {
   return (
-        <div key={i}>
-          <div className="mb-4 flex items-start text-sm">
-            <img src={message.userIcon} className="mr-3 h-10 w-10 rounded" />
-            <div className="flex-1 overflow-hidden">
-              <div>
-                <span className="font-bold text-white">{message.user}</span>
-                <span className="text-xs text-white"> {message.postedAt}</span>
-              </div>
-              <p className="leading-normal text-white">{message.messageBody}</p>
-            </div>
+    <div key={i}>
+      <div className="mb-4 flex items-start text-sm">
+        <img src={message.userIcon} className="mr-3 h-10 w-10 rounded" />
+        <div className="flex-1 overflow-hidden">
+          <div>
+            <span className="font-bold text-white">{message.user}</span>
+            <span className="text-xs text-white"> {message.postedAt}</span>
           </div>
+          <p className="leading-normal text-white">{message.messageBody}</p>
         </div>
+      </div>
+    </div>
   );
 }
 
@@ -148,7 +158,7 @@ function repeatMessage(n: number): JSX.Element[] {
   ];
   const listArray: JSX.Element[] = [];
   for (let i = 0; i < n; i++) {
-    const fixedI = (i - 1) % 3 + 1;
+    const fixedI = ((i - 1) % 3) + 1;
     listArray.push(renderMessage(messages[fixedI], fixedI));
   }
 

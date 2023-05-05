@@ -19,12 +19,12 @@ export default function Authenticate(texts: AuthText) {
           >
             {texts.head}
           </p>
-          <p className="mt-5 text-sm text-center font-medium leading-none text-gray-500 dark:text-gray-300">
+          <p className="mt-5 text-sm text-center font-medium leading-none text-gray-500 dark:text-gray-300 whitespace-pre">
             {texts.subhead.p}&nbsp;
             <Link
               tabIndex={0}
               href={texts.subhead.link.href}
-              className="cursor-pointer px-1 py-1.5 text-sm font-medium leading-none hover:bg-blue-400 hover:bg-opacity-10 rounded no-underline text-blue-600 dark:text-blue-500"
+              className="cursor-pointer px-1 py-1.5 text-sm font-medium leading-none hover:bg-blue-400 hover:bg-opacity-10 rounded no-underline text-blue-600 dark:text-blue-500 whitespace-pre"
             >
               {texts.subhead.link.text}
             </Link>
@@ -35,7 +35,7 @@ export default function Authenticate(texts: AuthText) {
             className="mb-4 mt-10 flex w-full items-center rounded-lg border border-gray-700 px-4 py-3.5 hover:bg-gray-300 focus:outline-none focus:ring-4 dark:hover:bg-gray-800 focus:ring-gray-700 dark:border-gray-500 dark:focus:ring-gray-800"
           >
             <Icon icon="flat-color-icons:google" width={21}></Icon>
-            <p className="ml-4 text-base font-medium text-gray-700 dark:text-gray-300">
+            <p className="flex-1 text-center text-base font-medium text-gray-700 dark:text-gray-300 mr-3">
               Google で{texts.googleText}
             </p>
           </button>
